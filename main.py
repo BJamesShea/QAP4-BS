@@ -26,63 +26,77 @@ curDate = datetime.datetime.now()
 
 
 # Main program starts here.
-while True:
-
+       
     # Gather user inputs.
 
 
 
-    def isValidName(name):
-        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.' ")
+def isValidName(name):
+        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890 ")
         return set(name).issubset(ALLOWED_CHAR_SET)
 
-    def customerInfo():
+def customerInfo():
         while True:
             # Customer first name
             custFirstName = input("Enter the customers first name: ")
             if isValidName(custFirstName):
                 break
-            print("Error - Please only use letters, hyphens, apostrophes, and/or periods.")
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
         
-    
+        while True:
+            # Customer last name
+            custLastName = input("Enter the customers last name: ")
+            if isValidName(custLastName):
+                break
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
-    while True:
-        # Customer last name
-        custLastName = input("Enter the customers last name: ")
-        if custLastName == "" or custLastName == " ":
-            print("Error - Customer last name cannot be blank.")
-        else:
-            break
+        while True:
+            # Customer address
+            custStrAdd = input("Enter the customers street address: ")
+            if isValidName(custStrAdd):
+                break
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
-    while True:
-        # Customer address
-        custStrAdd = input("Enter the customers street address: ")
-        if custStrAdd == "" or custStrAdd == " ":
-            print("Error - Customer street address cannot be empty.")
-        else:
-            break
+        while True:
+            # Customer city
+            custCity = input("Enter the customer city: ")
+            if isValidName(custCity):
+                 break
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
-    while True:
-        # Customer city
-        custCity = input("Enter the customer city: ")
-        if custCity == "" or custCity == " ":
-            print("Errror - Customer city cannot be blank.")
-        else:
-            break
+        provLst = ["NL", "NS", "NB", "PE", "PQ", "ON", "MB", "AB", "BC", "NT", "YT", "SK", "NV"] # Province list
+        while True:
+            # Customer province
+            prov = input("Enter the customer province (XX): ")
+            if len(prov) != 2:
+                print("Error - Must be two characters only")
+            elif isValidName(prov):
+                 break
+            
+            elif prov not in provLst:
+                print("Error - Invalid Province")
+            else:
+                break
 
-    provLst = ["NL", "NS", "NB", "PE", "PQ", "ON", "MB", "AB", "BC", "NT", "YT", "SK", "NV"] # Province list
-    while True:
-        # Customer province
-        prov = input("Enter the customer province (XX): ")
-        if prov == "":
-            print("Error - Customer province cannot be blank")
-        elif len(prov) != 2:
-            print("Error - Must be two characters only")
-        elif prov not in provLst:
-            print("Error - Invalid Province")
-        else:
-            break
+        while True:
+            # Customer postal code
+            postCode = input("Enter the customers postal code: ")
+            if isValidName(postCode):
+                break
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
+
+        while True:
+            # Custome phone number
+            phoneNum = input("Enter the customers phone number (###-###-####): ")
+            if isValidName(phoneNum):
+                break
+            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
+
+        # Returns
+        return custFirstName, custLastName, custStrAdd, custCity, prov.upper(), postCode, phoneNum
+
     # Perform required calculations.
+customerData = customerInfo()
 
     # Display results
     
