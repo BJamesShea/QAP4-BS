@@ -20,6 +20,7 @@ HST_RATE = float(f.readline())
 PROC_FEE = float(f.readline())
 f.close()
 
+curDate = datetime.datetime.now()
 
 # Define program functions.
 
@@ -28,13 +29,22 @@ f.close()
 while True:
 
     # Gather user inputs.
-    while True:
-        # Customer first name
-        custFirstName = input("Enter the customers first name: ")
-        if custFirstName == "" or custFirstName == " ":
-            print("Error - Customer first name cannot be blank.")
-        else:
-            break
+
+
+
+    def isValidName(name):
+        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.' ")
+        return set(name).issubset(ALLOWED_CHAR_SET)
+
+    def customerInfo():
+        while True:
+            # Customer first name
+            custFirstName = input("Enter the customers first name: ")
+            if isValidName(custFirstName):
+                break
+            print("Error - Please only use letters, hyphens, apostrophes, and/or periods.")
+        
+    
 
     while True:
         # Customer last name
