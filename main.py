@@ -173,7 +173,6 @@ while True:
             return paymentMethod, downPayment
 
 
-
     def claimInfo():
             while True:
                 # Claim number
@@ -204,9 +203,7 @@ while True:
             return claimNum, claimDate, prevClaims
 
 
-
     # Perform required calculations.
-
 
     while True:
         customerData = customerInfo()
@@ -251,6 +248,7 @@ while True:
 
 
         # Display results
-        
+
+
 
     # Any housekeeping duties at the end of the program
