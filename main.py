@@ -30,21 +30,25 @@ curDate = datetime.datetime.now()
 # Gather user inputs.
 
 def isValidName(name):
-        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890 ")
+        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'")
         return set(name).issubset(ALLOWED_CHAR_SET)
+
+def isValidNum(name):
+        ALLOWED_NUM_SET = set("1234567890")
+        return set(name).issubset(ALLOWED_NUM_SET)
 
 
 def customerInfo():
         while True:
             # Customer first name
-            custFirstName = input("Enter the customers first name: ")
+            custFirstName = input("Enter the customers first name: ").title()
             if isValidName(custFirstName):
                 break
             print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
         
         while True:
             # Customer last name
-            custLastName = input("Enter the customers last name: ")
+            custLastName = input("Enter the customers last name: ").title()
             if isValidName(custLastName):
                 break
             print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
@@ -58,7 +62,7 @@ def customerInfo():
 
         while True:
             # Customer city
-            custCity = input("Enter the customer city: ")
+            custCity = input("Enter the customer city: ").title()
             if isValidName(custCity):
                  break
             print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
@@ -87,9 +91,9 @@ def customerInfo():
         while True:
             # Customer phone number
             phoneNum = input("Enter the customers phone number (###-###-####): ")
-            if isValidName(phoneNum):
+            if isValidNum(phoneNum):
                 break
-            print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
+            print("Error - Please only use numbers.")
 
         # Returns
         return custFirstName, custLastName, custStrAdd, custCity, prov.upper(), postCode, phoneNum
@@ -166,21 +170,48 @@ def paymentInfo():
 
 
 
-    # Perform required calculations.
+def claimInfo():
+        while True:
+            # Claim number
+            claimNum = input("Enter the claim number. ")
+            if claimNum.isdigit():
+                claimNum = int(claimNum)
+                break
+            print("Error - Please enter a numeric value.")
+
+
+        while True:
+            # Claim date
+            claimDate = input("Please enter the claim date (YYYY-MM-DD): ")
+            if isValidNum(claimDate):
+                break
+            print("Error - Please only use numbers.")
+
+        
+    
+
+
+        while True:
+            # Previous claims
+            prevClaims = input("Please enter the amount of previous claims for this customer: ")
+            if isValidNum(prevClaims):
+                break
+            print("Error - Please enter a numeric value.")
+
+        # Returns
+        return claimNum, claimDate, prevClaims
 
 
 
 
-
-
-
-
+# Perform required calculations.
 
 # Gather inputs
 while True:
     customerData = customerInfo()
-    insuranceInfo = vehicleInfo()
+    insuranceInformation = vehicleInfo()
     paymentInformation = paymentInfo()
+    claimInformation = claimInfo()
 
     # Display results
     
