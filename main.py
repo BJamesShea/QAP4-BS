@@ -30,19 +30,21 @@ curDate = datetime.datetime.now()
 # Gather user inputs.
 
 def isValidName(name):
-        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'")
+        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890")
         return set(name).issubset(ALLOWED_CHAR_SET)
 
 def isValidNum(name):
-        ALLOWED_NUM_SET = set("1234567890")
+        ALLOWED_NUM_SET = set("1234567890-")
         return set(name).issubset(ALLOWED_NUM_SET)
 
 
 def customerInfo():
         while True:
             # Customer first name
-            custFirstName = input("Enter the customers first name: ").title()
-            if isValidName(custFirstName):
+            custFirstName = input("Enter the customers first name (Type End to end program.): ").title()
+            if custFirstName == "End":
+                exit()
+            elif isValidName(custFirstName):
                 break
             print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
         
@@ -96,13 +98,15 @@ def customerInfo():
             print("Error - Please only use numbers.")
 
         # Returns
-        return custFirstName, custLastName, custStrAdd, custCity, prov.upper(), postCode, phoneNum
+        return custFirstName.title(), custLastName.title(), custStrAdd, custCity.title(), prov.upper(), postCode, phoneNum
 
 def vehicleInfo():
         while True:
             # Number of cars being insured
-            numCars = input("Enter the amount of cars to be insured. ")
-            if numCars.isdigit():
+            numCars = input("Enter the amount of cars to be insured (Type End to end program). ")
+            if numCars == "End":
+                exit()
+            elif numCars.isdigit():
                 numCars = int(numCars)
                 break
             print("Error - Please enter a valid number.")
@@ -145,7 +149,7 @@ def vehicleInfo():
             print("Customer has opted not to have a Loaner Car.")
 
             # Returns
-        return numCars, extraLiab, glassCoverage, loanerCar
+        return numCars, extraLiab.upper(), glassCoverage.upper(), loanerCar.upper()
 
 
 def paymentInfo():
@@ -173,8 +177,10 @@ def paymentInfo():
 def claimInfo():
         while True:
             # Claim number
-            claimNum = input("Enter the claim number. ")
-            if claimNum.isdigit():
+            claimNum = input("Enter the claim number. (Type End to end program) ")
+            if claimNum == "End":
+                 exit()
+            elif claimNum.isdigit():
                 claimNum = int(claimNum)
                 break
             print("Error - Please enter a numeric value.")
@@ -205,6 +211,13 @@ def claimInfo():
 
 
 # Perform required calculations.
+
+
+
+
+
+
+
 
 # Gather inputs
 while True:
