@@ -32,8 +32,6 @@ while True:
         
     # Gather user inputs.
     
-
-
         # Perform required calculations.
 
     while True:
@@ -44,6 +42,7 @@ while True:
 
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
+
         if numCars == 1:
             insurancePremium = BASIC_PREM
         elif numCars > 1:
