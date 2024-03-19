@@ -1,6 +1,6 @@
 # funkytown functions
 def isValidName(name):
-    ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890")
+    ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-. '1234567890")
     return set(name).issubset(ALLOWED_CHAR_SET)
 
 def isValidNum(name):

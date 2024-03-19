@@ -39,6 +39,7 @@ while True:
         paymentInformation = FUN.paymentInfo()
         claimInformation = FUN.claimInfo()
 
+        custFirstName, custLastName, custStrAdd, custCity, prov, postCode, phoneNum   = customerData
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
 
@@ -76,11 +77,47 @@ while True:
             monthlyPayment = (PROC_FEE + finalCost) / 8
 
 
-            # Display results
-
     
+
+
+        # DSPs conversions
+        customerName = custFirstName + " " + custLastName
         
-        print("-------------------------------------------")
+
+
+
+
+
+
+
+        # Display results
+        print("----------------------------------------------")
+        print()
+        print("----------------------------------------------")
+        print("----------ONE STOP INSURANCE COMPANY----------")
+        print("----------------------------------------------")
+        print()
+        print("             CUSTOMER INFORMATION             ")
+        print()
+        print("----------------------------------------------")
+        print(f"Customer Name:     {customerName:<20s}       ")
+        print(f"Address:           {custStrAdd:<20s}         ")
+        print(f"City:              {custCity:<14s}           ")
+        print(f"Province:          {prov:<2s}                ")
+        print(f"Postal Code:       {postCode:<6s}            ")
+        print(f"Phone Number:      {phoneNum:<12s}           ")
+        print()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         print(f"{finalCost}")
 
 
