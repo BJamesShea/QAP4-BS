@@ -38,11 +38,13 @@ while True:
         insuranceInformation = FUN.vehicleInfo()
         paymentInformation = FUN.paymentInfo()
         claimInformation = FUN.claimInfo()
+        previousClaimInformation = FUN.prevClaimInfo()
 
         custFirstName, custLastName, custStrAdd, custCity, prov, postCode, phoneNum   = customerData
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
-        claimNum, claimDate, prevClaims, = claimInformation
+        claimNum, claimDate, = claimInformation
+        prevClaimLst = previousClaimInformation
 
         if numCars == 1:
             insurancePremium = BASIC_PREM
@@ -147,24 +149,33 @@ while True:
         print()
         print("----------------------------------------------")
         print()
-        print("              CLAIM INFORMATION               ")
-        print()
-        print("----------------------------------------------")
-        print(f"Claim Number:        {claimNum:<8d}           ")
-        print(f"Claim Date:          {FV.FDateS(claimDate):<8s}")
-        print(f"Previous Claims:     {prevClaims:<2s}        ")
-        print()
-        print("----------------------------------------------")
-        print()
         print("              POLICY INFORMATION              ")
         print()
         print("----------------------------------------------")
-        print(f"Policy Number:       {POLICY_NUM:<8d}         ")
+        print(f"Policy Number:       {POLICY_NUM:<8d}        ")
         print(f"Policy Date:         {FV.FDateS(curDate):<8s}")
         print(f"First Payment Date:  {FV.FDateS(firstPaymentDate):<8s}")
         print()
-        
-        
+        print("----------------------------------------------")
+        print()
+        print("               CLAIM INFORMATION              ")
+        print()
+        print("----------------------------------------------")
+        print(f"Claim Number:       {claimNum:<8d}          ")
+        print(f"Claim Date:         {FV.FDateS(claimDate):<8s}")
+        print(f"invoice Date:       {FV.FDateS(invoiceDate):<8s}")
+        print(f"first Payment Date: {FV.FDateS(firstPaymentDate):<8s}")
+        print()
+        print("----------------------------------------------")
+        print()
+        print("               PREVIOUS CLAIMS                ")
+        print()
+        print("----------------------------------------------")
+        print()
+        print(f"Claim #         Claim Date      Amount       ")
+        print("----------------------------------------------")
+        print()
+        print(prevClaimLst)
         
         
         

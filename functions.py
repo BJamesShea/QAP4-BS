@@ -162,13 +162,36 @@ def claimInfo():
             break
         print("Error - Please only use numbers.")
 
+  
+    # Returns
+    return claimNum, claimDate,
+
+def prevClaimInfo():
+    prevClaimLst = []
 
     while True:
-        # Previous claims
-        prevClaims = input("Please enter the amount of previous claims for this customer: ")
-        if isValidNum(prevClaims):
+        previousClaim = input("Does this customer have any previous claims? (Y for yes / N for no): ").upper()
+        if previousClaim == "N":
             break
-        print("Error - Please enter a numeric value.")
+        elif previousClaim != "Y":
+            print("Please enter Y or N.")
+            continue
 
-    # Returns
-    return claimNum, claimDate, prevClaims
+        previousClaimNumber = input("Please enter the previous claim number: ")
+        if not isValidNum(previousClaimNumber):
+            print("Error - Please only use numbers.")
+            continue
+
+        previousClaimDate = input("Please enter the previous claim date (YYYY-MM-DD): ")
+        if not isValidNum(previousClaimDate):
+            print("Error - Please only use numbers.")
+            continue
+
+        previousClaimAmount = input("Please enter the previous claim amount: ")
+        if not isValidNum(previousClaimAmount):
+            print("Error - Please only use numbers.")
+            continue
+
+        prevClaimLst.append((previousClaimNumber, previousClaimDate, previousClaimAmount))
+
+    return prevClaimLst
