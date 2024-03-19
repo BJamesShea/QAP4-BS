@@ -42,6 +42,7 @@ while True:
         custFirstName, custLastName, custStrAdd, custCity, prov, postCode, phoneNum   = customerData
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
+        claimNum, claimDate, prevClaims, = claimInformation
 
         if numCars == 1:
             insurancePremium = BASIC_PREM
@@ -90,8 +91,7 @@ while True:
 
 
 
-        # Display results
-        print("----------------------------------------------")
+        # Display results to the user.
         print()
         print("----------------------------------------------")
         print("----------ONE STOP INSURANCE COMPANY----------")
@@ -107,6 +107,23 @@ while True:
         print(f"Postal Code:       {postCode:<6s}            ")
         print(f"Phone Number:      {phoneNum:<12s}           ")
         print()
+        print("----------------------------------------------")
+        print()
+        print("                  ADD-ONS                     ")
+        print()
+        print("----------------------------------------------")
+        print(f"Number of Cars:    {numCars:<1d}             ")
+        print(f"Extra Liability:   {extraLiab:<1s}           ")
+        print(f"Glass Coverage:    {glassCoverage:<1s}       ")
+        print(f"Loaner Car:        {loanerCar:<1s}           ")
+        print(f"payment Method:    {paymentMethod:<1s}       ")
+        print()
+        print("----------------------------------------------")
+        print()
+        print("              PAYMENT INFORMATION             ")
+        print() 
+        print("----------------------------------------------")
+        print(f"Down Payment Amount: {FV.FDollar2(downPayment):<8s}")
         
         
         
@@ -116,9 +133,6 @@ while True:
         
         
         
-        
-        
-        print(f"{finalCost}")
 
 
         # Any housekeeping duties at the end of the program
