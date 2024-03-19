@@ -31,7 +31,7 @@ while True:
         
     # Gather user inputs.
     
-        # Perform required calculations.
+        # Perform required calculations and initialize variables.
     finalCost = 0
     while True:
         customerData = FUN.customerInfo()
