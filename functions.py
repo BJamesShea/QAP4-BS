@@ -123,6 +123,7 @@ def vehicleInfo():
 
 
 def paymentInfo():
+    downPayment = 0
     paymentMethodLst = ["Full", "Monthly", "Down Payment"]
     while True:
         # Paying in monthly or full amount

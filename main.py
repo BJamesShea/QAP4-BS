@@ -73,9 +73,9 @@ while True:
         finalCost = totalInsurancePremium + HST
 
         if paymentMethod == "Down Payment":
-            monthlyPayment = (finalCost - downPayment) + PROC_FEE / 8
+            monthlyPayment = (finalCost - downPayment + PROC_FEE) / 8
         else:
-            monthlyPayment = (PROC_FEE + finalCost) / 8
+            monthlyPayment = (finalCost + PROC_FEE) / 8
 
 
     
@@ -83,6 +83,20 @@ while True:
 
         # DSPs conversions
         customerName = custFirstName + " " + custLastName
+        invoiceDate = datetime.date.today()
+
+        # Convert claim date to a date object
+        claimDate = datetime.datetime.strptime(claimDate, "%Y-%m-%d").date()
+        
+        # First of next month
+        nextMonth = invoiceDate.month + 1
+        year = invoiceDate.year
+
+        if nextMonth == 13:
+            nextMonth = 1
+            year += 1
+        
+        firstPaymentDate = datetime.date(year, nextMonth, 1)
         
 
 
@@ -124,9 +138,31 @@ while True:
         print() 
         print("----------------------------------------------")
         print(f"Down Payment Amount: {FV.FDollar2(downPayment):<8s}")
-        
-        
-        
+        print(f"Insurance Premium:   {FV.FDollar2(totalInsurancePremium):<8s}")
+        print(f"Extra cost:          {FV.FDollar2(totalExtraCost):<8s}")
+        print(f"HST:                 {FV.FDollar2(HST):<8s}")
+        print(f"Total Cost:          {FV.FDollar2(finalCost):<8s}")
+        print()
+        print(f"Monthly Payment:     {FV.FDollar2(monthlyPayment):<8s}")
+        print()
+        print("----------------------------------------------")
+        print()
+        print("              CLAIM INFORMATION               ")
+        print()
+        print("----------------------------------------------")
+        print(f"Claim Number:        {claimNum:<8d}           ")
+        print(f"Claim Date:          {FV.FDateS(claimDate):<8s}")
+        print(f"Previous Claims:     {prevClaims:<2s}        ")
+        print()
+        print("----------------------------------------------")
+        print()
+        print("              POLICY INFORMATION              ")
+        print()
+        print("----------------------------------------------")
+        print(f"Policy Number:       {POLICY_NUM:<8d}         ")
+        print(f"Policy Date:         {FV.FDateS(curDate):<8s}")
+        print(f"First Payment Date:  {FV.FDateS(firstPaymentDate):<8s}")
+        print()
         
         
         
