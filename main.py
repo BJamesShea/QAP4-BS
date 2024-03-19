@@ -27,13 +27,12 @@ while True:
 
     # Define program functions.
 
-
     # Main program starts here.
         
     # Gather user inputs.
     
         # Perform required calculations.
-
+    finalCost = 0
     while True:
         customerData = FUN.customerInfo()
         insuranceInformation = FUN.vehicleInfo()
@@ -51,17 +50,17 @@ while True:
         if extraLiab == "Y":
             extraLiabilityCost = EXTRA_LIAB_COV
         else:
-            break
+            extraLiabilityCost = 0
 
         if glassCoverage == "Y":
             glassCoverageCost = GLASS_COV
         else:
-            break
+            glassCoverageCost = 0
 
         if loanerCar == "Y":
             loanerCarCost = LOANER_CAR
         else:
-            break
+            loanerCarCost = 0
 
         totalExtraCost = extraLiabilityCost + glassCoverageCost + loanerCarCost
 
@@ -79,6 +78,10 @@ while True:
 
             # Display results
 
+    
+        
+        print("-------------------------------------------")
+        print(f"{finalCost}")
 
 
         # Any housekeeping duties at the end of the program
