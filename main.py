@@ -8,36 +8,38 @@ import datetime
 import sys
 import time
 
-# Define program constants.
-f = open('def.dat', 'r')
-POLICY_NUM = int(f.readline())
-BASIC_PREM = float(f.readline())
-ADD_DISCOUNT = float(f.readline())
-EXTRA_LIAB_COV = float(f.readline())
-GLASS_COV = float(f.readline())
-LOANER_CAR = float(f.readline())
-HST_RATE = float(f.readline())
-PROC_FEE = float(f.readline())
-f.close()
-
-curDate = datetime.datetime.now()
-
-# Define program functions.
-
-
-# Main program starts here.
-       
-# Gather user inputs.
-
-def isValidName(name):
-        ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890")
-        return set(name).issubset(ALLOWED_CHAR_SET)
-
-def isValidNum(name):
-        ALLOWED_NUM_SET = set("1234567890-")
-        return set(name).issubset(ALLOWED_NUM_SET)
 
 while True:
+    # Define program constants.
+    f = open('def.dat', 'r')
+    POLICY_NUM = int(f.readline())
+    BASIC_PREM = float(f.readline())
+    ADD_DISCOUNT = float(f.readline())
+    EXTRA_LIAB_COV = float(f.readline())
+    GLASS_COV = float(f.readline())
+    LOANER_CAR = float(f.readline())
+    HST_RATE = float(f.readline())
+    PROC_FEE = float(f.readline())
+    f.close()
+
+    curDate = datetime.datetime.now()
+
+    # Define program functions.
+
+
+    # Main program starts here.
+        
+    # Gather user inputs.
+
+    def isValidName(name):
+            ALLOWED_CHAR_SET = set("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz-.'1234567890")
+            return set(name).issubset(ALLOWED_CHAR_SET)
+
+    def isValidNum(name):
+            ALLOWED_NUM_SET = set("1234567890-")
+            return set(name).issubset(ALLOWED_NUM_SET)
+
+
     def customerInfo():
             while True:
                 # Customer first name
@@ -203,7 +205,7 @@ while True:
             return claimNum, claimDate, prevClaims
 
 
-    # Perform required calculations.
+        # Perform required calculations.
 
     while True:
         customerData = customerInfo()
@@ -247,8 +249,8 @@ while True:
             monthlyPayment = (PROC_FEE + finalCost) / 8
 
 
-        # Display results
+            # Display results
 
 
 
-    # Any housekeeping duties at the end of the program
+        # Any housekeeping duties at the end of the program
