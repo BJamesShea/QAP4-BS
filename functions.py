@@ -145,6 +145,7 @@ def paymentInfo():
 
 
 def claimInfo():
+    prevClaimsLst = []
     while True:
         # Claim number
         claimNum = input("Enter the claim number. (Type End to end program) ")
@@ -164,11 +165,57 @@ def claimInfo():
 
 
     while True:
-        # Previous claims
-        prevClaims = input("Please enter the amount of previous claims for this customer: ")
-        if isValidNum(prevClaims):
+        # Claim amount
+        claimAmount = input("Please enter the claim amount: ")
+        if isValidNum(claimAmount):
             break
         print("Error - Please enter a numeric value.")
 
     # Returns
-    return claimNum, claimDate, prevClaims
+    prevClaimsLst.append((claimNum, claimDate, claimAmount))
+    
+
+    while True:
+        anotherClaim = input("Does the customer have another claim? (Y for yes / N for no): ").upper()
+        if anotherClaim in ["Y", "N"]:
+            break
+        print("Please enter Y or N.")
+        continue
+
+    # repeat for another claim
+    while True:
+        if anotherClaim == "Y":
+            # Claim number
+            claimNum = input("Enter the claim number. (Type End to end program) ")
+            if claimNum == "End":
+                exit()
+            elif claimNum.isdigit():
+                claimNum = int(claimNum)
+                break
+            print("Error - Please enter a numeric value.")
+
+        while True:
+            # Claim date
+            claimDate = input("Please enter the claim date (YYYY-MM-DD): ")
+            if isValidNum(claimDate):
+                break
+            print("Error - Please only use numbers.")
+
+        while True:
+            # Claim amount
+            claimAmount = input("Please enter the claim amount: ")
+            if isValidNum(claimAmount):
+                break
+            print("Error - Please enter a numeric value.")
+
+        # Returns
+        prevClaimsLst.append((claimNum, claimDate, claimAmount))
+
+        while True:
+            anotherClaim = input("Does the customer have another claim? (Y for yes / N for no): ").upper()
+            if anotherClaim in ["Y", "N"]:
+                break
+            print("Please enter Y or N.")
+            continue
+
+    return prevClaimsLst
