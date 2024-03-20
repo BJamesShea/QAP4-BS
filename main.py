@@ -32,19 +32,24 @@ while True:
     # Gather user inputs.
     
         # Perform required calculations and initialize variables.
+    
     finalCost = 0
     while True:
         customerData = FUN.customerInfo()
         insuranceInformation = FUN.vehicleInfo()
         paymentInformation = FUN.paymentInfo()
         claimInformation = FUN.claimInfo()
-        previousClaimInformation = FUN.prevClaimInfo()
+        prevClaimLst = FUN.prevClaimInfo()
+        # previousClaimInformation = FUN.prevClaimInfo()
 
         custFirstName, custLastName, custStrAdd, custCity, prov, postCode, phoneNum   = customerData
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
         claimNum, claimDate, = claimInformation
-        prevClaimLst = previousClaimInformation
+        # prevClaimLst = previousClaimInformation
+
+        
+        
 
         if numCars == 1:
             insurancePremium = BASIC_PREM
@@ -175,7 +180,12 @@ while True:
         print(f"Claim #         Claim Date      Amount       ")
         print("----------------------------------------------")
         print()
-        print(prevClaimLst)
+        if len(prevClaimLst) == 0:
+            print("no claims!")
+        else:
+            for item in prevClaimLst:
+                print(f"{item[0]}        {item[1]}       {item[2]}")
+
         
         
         
