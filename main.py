@@ -10,18 +10,20 @@ import time
 import functions as FUN
 
 
+  # Define program constants.
+f = open('def.dat', 'r')
+POLICY_NUM = int(f.readline())
+BASIC_PREM = float(f.readline())
+ADD_DISCOUNT = float(f.readline())
+EXTRA_LIAB_COV = float(f.readline())
+GLASS_COV = float(f.readline())
+LOANER_CAR = float(f.readline())
+HST_RATE = float(f.readline())
+PROC_FEE = float(f.readline())
+f.close()
+
 while True:
-    # Define program constants.
-    f = open('def.dat', 'r')
-    POLICY_NUM = int(f.readline())
-    BASIC_PREM = float(f.readline())
-    ADD_DISCOUNT = float(f.readline())
-    EXTRA_LIAB_COV = float(f.readline())
-    GLASS_COV = float(f.readline())
-    LOANER_CAR = float(f.readline())
-    HST_RATE = float(f.readline())
-    PROC_FEE = float(f.readline())
-    f.close()
+  
 
     curDate = datetime.datetime.now()
 
@@ -57,17 +59,17 @@ while True:
             insurancePremium = BASIC_PREM * ADD_DISCOUNT
 
         if extraLiab == "Y":
-            extraLiabilityCost = EXTRA_LIAB_COV
+            extraLiabilityCost = EXTRA_LIAB_COV * numCars
         else:
             extraLiabilityCost = 0
 
         if glassCoverage == "Y":
-            glassCoverageCost = GLASS_COV
+            glassCoverageCost = GLASS_COV * numCars
         else:
             glassCoverageCost = 0
 
         if loanerCar == "Y":
-            loanerCarCost = LOANER_CAR
+            loanerCarCost = LOANER_CAR * numCars
         else:
             loanerCarCost = 0
 
@@ -121,23 +123,23 @@ while True:
         print("             CUSTOMER INFORMATION             ")
         print()
         print("----------------------------------------------")
-        print(f"Customer Name:     {customerName:<20s}       ")
-        print(f"Address:           {custStrAdd:<20s}         ")
-        print(f"City:              {custCity:<14s}           ")
-        print(f"Province:          {prov:<2s}                ")
-        print(f"Postal Code:       {postCode:<6s}            ")
-        print(f"Phone Number:      {phoneNum:<12s}           ")
+        print(f"Customer Name:       {customerName:<20s}       ")
+        print(f"Address:             {custStrAdd:<20s}         ")
+        print(f"City:                {custCity:<14s}           ")
+        print(f"Province:            {prov:<2s}                ")
+        print(f"Postal Code:         {postCode:<6s}            ")
+        print(f"Phone Number:        {phoneNum:<12s}           ")
         print()
         print("----------------------------------------------")
         print()
         print("                  ADD-ONS                     ")
         print()
         print("----------------------------------------------")
-        print(f"Number of Cars:    {numCars:<1d}             ")
-        print(f"Extra Liability:   {extraLiab:<1s}           ")
-        print(f"Glass Coverage:    {glassCoverage:<1s}       ")
-        print(f"Loaner Car:        {loanerCar:<1s}           ")
-        print(f"payment Method:    {paymentMethod:<1s}       ")
+        print(f"Number of Cars:      {numCars:<1d}             ")
+        print(f"Extra Liability:     {extraLiab:<1s}           ")
+        print(f"Glass Coverage:      {glassCoverage:<1s}       ")
+        print(f"Loaner Car:          {loanerCar:<1s}           ")
+        print(f"payment Method:      {paymentMethod:<1s}       ")
         print()
         print("----------------------------------------------")
         print()
@@ -166,10 +168,10 @@ while True:
         print("               CLAIM INFORMATION              ")
         print()
         print("----------------------------------------------")
-        print(f"Claim Number:       {claimNum:<8d}          ")
-        print(f"Claim Date:         {FV.FDateS(claimDate):<8s}")
-        print(f"invoice Date:       {FV.FDateS(invoiceDate):<8s}")
-        print(f"first Payment Date: {FV.FDateS(firstPaymentDate):<8s}")
+        print(f"Claim Number:        {claimNum:<8d}          ")
+        print(f"Claim Date:          {FV.FDateS(claimDate):<8s}")
+        print(f"invoice Date:        {FV.FDateS(invoiceDate):<8s}")
+        print(f"first Payment Date:  {FV.FDateS(firstPaymentDate):<8s}")
         print()
         print("----------------------------------------------")
         print()
@@ -177,14 +179,13 @@ while True:
         print()
         print("----------------------------------------------")
         print()
-        print(f"Claim #         Claim Date      Amount       ")
+        print(f"CLAIM #         CLAIM DATE      AMOUNT       ")
         print("----------------------------------------------")
-        print()
         if len(prevClaimLst) == 0:
-            print("no claims!")
+            print("No previous claims.")
         else:
             for item in prevClaimLst:
-                print(f"{item[0]}        {item[1]}       {item[2]}")
+                print(f"{item[0]:<4s}            {FV.FDateS(item[1]):<8}       {FV.FDollar2(float(item[2])):<8}")
 
         
         

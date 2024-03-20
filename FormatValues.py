@@ -1,3 +1,4 @@
+
 def FDollar2(DollarValue):
     # Function will accept a value and format it to $#,###.##.
 
@@ -76,3 +77,11 @@ def FDateL(DateValue):
     DateValueStr = DateValue.strftime("%A, %B %d, %Y")
 
     return DateValueStr
+
+# newwww
+def FDateSab(DateValue):
+    
+    if isinstance(DateValue, str):
+        return DateValue  
+    else:
+        return DateValue.strftime("%Y-%m-%d")  

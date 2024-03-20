@@ -34,7 +34,7 @@ def customerInfo():
 
     while True:
         # Customer city
-        custCity = " Mount Pearl " #input("Enter the customer city: ").title()
+        custCity = "Mount Pearl" #input("Enter the customer city: ").title()
         if isValidName(custCity):
             break
         print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
@@ -166,6 +166,8 @@ def claimInfo():
     # Returns
     return claimNum, claimDate,
 
+import datetime
+
 def prevClaimInfo():
     prevClaimLst = []
 
@@ -183,8 +185,10 @@ def prevClaimInfo():
             continue
 
         previousClaimDate = input("Please enter the previous claim date (YYYY-MM-DD): ")
-        if not isValidNum(previousClaimDate):
-            print("Error - Please only use numbers.")
+        try:
+            previousClaimDate = datetime.datetime.strptime(previousClaimDate, "%Y-%m-%d").date()
+        except ValueError:
+            print("Error - Invalid date format. Please use YYYY-MM-DD.")
             continue
 
         previousClaimAmount = input("Please enter the previous claim amount: ")
@@ -194,4 +198,4 @@ def prevClaimInfo():
 
         prevClaimLst.append((previousClaimNumber, previousClaimDate, previousClaimAmount))
 
-    return(prevClaimLst)
+    return prevClaimLst
