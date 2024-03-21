@@ -11,7 +11,7 @@ def isValidNum(name):
 def customerInfo():
     while True:
         # Customer first name
-        custFirstName = "Brandon" #input("Enter the customers first name (Type End to end program.): ").title()
+        custFirstName = input("Enter the customers first name (Type End to end program.): ").title()
         if custFirstName == "End":
             exit()
         elif isValidName(custFirstName):
@@ -20,21 +20,21 @@ def customerInfo():
     
     while True:
         # Customer last name
-        custLastName = "Shea" #input("Enter the customers last name: ").title()
+        custLastName = input("Enter the customers last name: ").title()
         if isValidName(custLastName):
             break
         print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
     while True:
         # Customer address
-        custStrAdd = "60 maccarthy Crescent" #input("Enter the customers street address: ")
+        custStrAdd = input("Enter the customers street address: ")
         if isValidName(custStrAdd):
             break
         print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
     while True:
         # Customer city
-        custCity = "Mount Pearl" #input("Enter the customer city: ").title()
+        custCity = input("Enter the customer city: ").title()
         if isValidName(custCity):
             break
         print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
@@ -42,7 +42,7 @@ def customerInfo():
     provLst = ["NL", "NS", "NB", "PE", "PQ", "ON", "MB", "AB", "BC", "NT", "YT", "SK", "NV"] # Province list
     while True:
         # Customer province
-        prov = "NL" #input("Enter the customer province (XX): ")
+        prov = input("Enter the customer province (XX): ")
         if len(prov) != 2:
             print("Error - Must be two characters only")
         elif isValidName(prov):
@@ -55,25 +55,25 @@ def customerInfo():
 
     while True:
         # Customer postal code
-        postCode = "A1N3S2" #input("Enter the customers postal code: ")
+        postCode = input("Enter the customers postal code: ")
         if isValidName(postCode):
             break
         print("Error - Please only use letters, numbers, hyphens, apostrophes, and/or periods.")
 
     while True:
         # Customer phone number
-        phoneNum = "7097719504" #input("Enter the customers phone number (###-###-####): ")
+        phoneNum = input("Enter the customers phone number (###-###-####): ")
         if isValidNum(phoneNum):
             break
         print("Error - Please only use numbers.")
 
     # Returns
-    return custFirstName.title(), custLastName.title(), custStrAdd, custCity.title(), prov.upper(), postCode, phoneNum
+    return custFirstName.title(), custLastName.title(), custStrAdd, custCity.title(), prov.upper(), postCode.upper(), phoneNum
 
 def vehicleInfo():
     while True:
         # Number of cars being insured
-        numCars = "2" #input("Enter the amount of cars to be insured (Type End to end program). ")
+        numCars = input("Enter the amount of cars to be insured (Type End to end program). ")
         if numCars == "End":
             exit()
         elif numCars.isdigit():
@@ -83,7 +83,7 @@ def vehicleInfo():
 
     while True:
         # Extra Liability Coverage
-        extraLiab = "Y" #input("Does the customer want Extra Liability Coverage? (Y for yes / N for no): ").upper()
+        extraLiab = input("Does the customer want Extra Liability Coverage? (Y for yes / N for no): ").upper()
         if extraLiab in ["Y", "N"]:
             break
         print("Please enter Y or N.")
@@ -95,7 +95,7 @@ def vehicleInfo():
 
     while True:
         # Optional Glass Coverage
-        glassCoverage = "N" #input("Does the customer want Optional Glass Coverage? (Y for yes / N for no): ").upper()
+        glassCoverage = input("Does the customer want Optional Glass Coverage? (Y for yes / N for no): ").upper()
         if glassCoverage in ["Y", "N"]:
             break
         print("Please enter Y or N.")
@@ -108,7 +108,7 @@ def vehicleInfo():
 
     while True:
         # Optional Loaner Car
-        loanerCar = "Y" #input("Does the customer want a Loaner Car? (Y for yes / N for no): ").upper()
+        loanerCar = input("Does the customer want a Loaner Car? (Y for yes / N for no): ").upper()
         if loanerCar in ["Y", "N"]:
             break
         print("Please enter Y or N.")
@@ -147,7 +147,7 @@ def paymentInfo():
 def claimInfo():
     while True:
         # Claim number
-        claimNum = "22" #input("Enter the claim number. (Type End to end program) ")
+        claimNum = input("Enter the claim number. (Type End to end program) ")
         if claimNum == "End":
             exit()
         elif claimNum.isdigit():
@@ -157,7 +157,7 @@ def claimInfo():
 
     while True:
         # Claim date
-        claimDate = "2024-01-01" #input("Please enter the claim date (YYYY-MM-DD): ")
+        claimDate = input("Please enter the claim date (YYYY-MM-DD): ")
         if isValidNum(claimDate):
             break
         print("Error - Please only use numbers.")
