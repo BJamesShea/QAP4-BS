@@ -50,8 +50,6 @@ while True:
         claimNum, claimDate, = claimInformation
         # prevClaimLst = previousClaimInformation
 
-        
-        
 
         if numCars == 1:
             insurancePremium = BASIC_PREM
@@ -87,9 +85,6 @@ while True:
             monthlyPayment = (finalCost + PROC_FEE) / 8
 
 
-    
-
-
         # DSPs conversions
         customerName = custFirstName + " " + custLastName
         invoiceDate = datetime.date.today()
@@ -108,12 +103,6 @@ while True:
         firstPaymentDate = datetime.date(year, nextMonth, 1)
         
 
-
-
-
-
-
-
         # Display results to the user.
         print()
         print("----------------------------------------------")
@@ -121,21 +110,21 @@ while True:
         print("----------------------------------------------")
         print("             CUSTOMER INFORMATION             ")
         print("----------------------------------------------")
-        print(f"Customer Name:       {customerName:<20s}       ")
-        print(f"Address:             {custStrAdd:<20s}         ")
-        print(f"City:                {custCity:<14s}           ")
-        print(f"Province:            {prov:<2s}                ")
-        print(f"Postal Code:         {postCode:<6s}            ")
-        print(f"Phone Number:        {phoneNum:<12s}           ")
+        print(f"Customer Name:       {customerName:<20s}     ")
+        print(f"Address:             {custStrAdd:<20s}       ")
+        print(f"City:                {custCity:<14s}         ")
+        print(f"Province:            {prov:<2s}              ")
+        print(f"Postal Code:         {postCode:<6s}          ")
+        print(f"Phone Number:        {phoneNum:<12s}         ")
         print()
         print("----------------------------------------------")
         print("                  ADD-ONS                     ")
         print("----------------------------------------------")
-        print(f"Number of Cars:      {numCars:<1d}             ")
-        print(f"Extra Liability:     {extraLiab:<1s}           ")
-        print(f"Glass Coverage:      {glassCoverage:<1s}       ")
-        print(f"Loaner Car:          {loanerCar:<1s}           ")
-        print(f"payment Method:      {paymentMethod:<1s}       ")
+        print(f"Number of Cars:      {numCars:<1d}           ")
+        print(f"Extra Liability:     {extraLiab:<1s}         ")
+        print(f"Glass Coverage:      {glassCoverage:<1s}     ")
+        print(f"Loaner Car:          {loanerCar:<1s}         ")
+        print(f"payment Method:      {paymentMethod:<1s}     ")
         print()
         print("----------------------------------------------")
         print("              PAYMENT INFORMATION             ")
