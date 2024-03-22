@@ -22,6 +22,8 @@ HST_RATE = float(f.readline())
 PROC_FEE = float(f.readline())
 f.close()
 
+policyNumCtr = 1943
+
 while True:
   
 
@@ -29,6 +31,9 @@ while True:
 
     # Define program functions.
 
+
+    # counters
+    
     # Main program starts here.
         
     # Gather user inputs.
@@ -42,12 +47,17 @@ while True:
         paymentInformation = FUN.paymentInfo()
         claimInformation = FUN.claimInfo()
         prevClaimLst = FUN.prevClaimInfo()
+        
         # previousClaimInformation = FUN.prevClaimInfo()
 
         custFirstName, custLastName, custStrAdd, custCity, prov, postCode, phoneNum   = customerData
         numCars, extraLiab, glassCoverage, loanerCar = insuranceInformation
         paymentMethod, downPayment = paymentInformation
         claimNum, claimDate, = claimInformation
+        
+        
+        
+        
         # prevClaimLst = previousClaimInformation
 
 
@@ -101,6 +111,8 @@ while True:
             year += 1
         
         firstPaymentDate = datetime.date(year, nextMonth, 1)
+
+        policyNumCtr += 1
         
 
         # Display results to the user.
@@ -140,7 +152,7 @@ while True:
         print("----------------------------------------------")
         print("              POLICY INFORMATION              ")
         print("----------------------------------------------")
-        print(f"Policy Number:       {POLICY_NUM:<8d}        ")
+        print(f"Policy Number:       {policyNumCtr}          ")
         print(f"Policy Date:         {FV.FDateS(curDate):<8s}")
         print()
         print("----------------------------------------------")
@@ -163,9 +175,19 @@ while True:
                 print(f"{item[0]:<4s}            {FV.FDateS(item[1]):<8}       {FV.FDollar2(float(item[2])):<8}")
 
         
-        
-        
-        
+        continueProgram = FUN.continueProgram()
+        continueProg = continueProgram
+        if continueProg == "N":
+            break
+        elif continueProg == "Y":
+            break
+        else:
+            print("Error - Please enter Y or N.")
+            continue
 
+        
+        
+        
+        
 
         # Any housekeeping duties at the end of the program

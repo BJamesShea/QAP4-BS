@@ -199,3 +199,15 @@ def prevClaimInfo():
         prevClaimLst.append((previousClaimNumber, previousClaimDate, previousClaimAmount))
 
     return prevClaimLst
+
+def continueProgram():
+    while True:
+        continueProg = input("Would you like to continue this program? (Y/N): ").upper()
+        if continueProg == "N":
+            exit()
+        elif continueProg == "Y":
+            break
+        else:
+            print("Error - Please enter Y or N.")
+
+    return continueProg
