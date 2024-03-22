@@ -174,7 +174,7 @@ while True:
             for item in prevClaimLst:
                 print(f"{item[0]:<4s}            {FV.FDateS(item[1]):<8}       {FV.FDollar2(float(item[2])):<8}")
 
-        
+        print()
         continueProgram = FUN.continueProgram()
         continueProg = continueProgram
         if continueProg == "N":
