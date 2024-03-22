@@ -1,6 +1,6 @@
 # Description: QAP# 4 - One stop Insruance Company
 # Author: Brandon Shea
-# Date(s): March 14th 2024 - March 20 2024
+# Date(s): March 14th 2024 - March 22 2024
 
 # Define required libraries.
 import FormatValues as FV
@@ -136,7 +136,7 @@ while True:
         print(f"Extra Liability:     {extraLiab:<1s}         ")
         print(f"Glass Coverage:      {glassCoverage:<1s}     ")
         print(f"Loaner Car:          {loanerCar:<1s}         ")
-        print(f"payment Method:      {paymentMethod:<1s}     ")
+        print(f"Payment Method:      {paymentMethod:<1s}     ")
         print()
         print("----------------------------------------------")
         print("              PAYMENT INFORMATION             ")
